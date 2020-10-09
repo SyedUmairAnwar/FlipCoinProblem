@@ -1,15 +1,24 @@
 #!/bin/bash -x
 headc=0
 tailc=0
-for ((i=0;i<20;i++))
+while [ $headc -lt 21 -a $tailc -lt 21 ]
 do
 var=$((RANDOM%2))
-if [ $var -eq 1 ]
-then 
-	((headc++))
-else
-	((tailc++))
-fi
+	if [ $var -eq 1 ]
+	then 
+		((headc++))
+	else
+		((tailc++))
+	fi
 done
+	if [ $headc -eq 21 ]
+	then
+		echo "head wins"
+	elif [ $tailc -eq 21 ]
+	then
+		echo "Tail wins"
+	else
+		echo "no one wins"
+	fi
 echo "number of times head wins is $headc"
 echo "number of times tail wins is $tailc"
