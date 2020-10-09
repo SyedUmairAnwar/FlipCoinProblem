@@ -19,6 +19,16 @@ done
 		echo "Tail wins"
 	else
 		echo "no one wins"
+		while [ $diff -lt 3 -a $diff -gt -3 ]
+		do
+			c=$((RANDOM%2))
+			if [ $c -eq 1 ]
+			then (($headc++))
+			else (($tailc++))
+			fi
+			diff=$(($headc-$tailc))
+		done
+
 	fi
 echo "number of times head wins is $headc"
 echo "number of times tail wins is $tailc"
